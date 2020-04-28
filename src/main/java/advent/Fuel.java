@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Advent {
+public class Fuel {
     /**
      * Fuel required to launch a given module is based on its mass.
      * Specifically, to find the fuel required for a module, take its mass, divide by three,

@@ -5,13 +5,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class AdventTest {
+public class FuelTest {
 
-    private Advent advent;
+    private Fuel fuel;
 
     @Before
     public void initTest() {
-        advent = new Advent();
+        fuel = new Fuel();
     }
 
     @Test
@@ -30,15 +30,15 @@ public class AdventTest {
          */
 
 
-        assertEquals(2, advent.calculateModuleFuel(12));
-        assertEquals(2, advent.calculateModuleFuel(14));
-        assertEquals(966, advent.calculateModuleFuel(1969));
-        assertEquals(50346, advent.calculateModuleFuel(100756));
+        assertEquals(2, fuel.calculateModuleFuel(12));
+        assertEquals(2, fuel.calculateModuleFuel(14));
+        assertEquals(966, fuel.calculateModuleFuel(1969));
+        assertEquals(50346, fuel.calculateModuleFuel(100756));
 
     }
 
     @Test
     public void testTotalFuel() {
-        assertEquals(5179544, advent.calculateTotalFuel("src/test/resources/input.txt"));
+        assertEquals(5179544, fuel.calculateTotalFuel("src/test/resources/input.txt"));
     }
 }
