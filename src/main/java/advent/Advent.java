@@ -14,7 +14,16 @@ public class Advent {
      * @return fuel
      */
     public int calculateModuleFuel(int mass) {
-        return (mass / 3) - 2;
+
+        int moduleFuel = (mass / 3) - 2;
+
+        if (moduleFuel > 0) {
+            moduleFuel += calculateModuleFuel(moduleFuel);
+        } else {
+            return 0;
+        }
+
+        return moduleFuel;
     }
 
     public int calculateTotalFuel(String fileName) {
