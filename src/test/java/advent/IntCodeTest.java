@@ -30,4 +30,15 @@ public class IntCodeTest {
 
     }
 
+    @Test
+    public void testOpcode2() {
+        /*
+        Opcode 2 works exactly like opcode 1, except it multiplies the two inputs instead of adding them.
+        Again, the three integers after the opcode indicate where the inputs and outputs are, not their values.
+         */
+
+        int[] input = {2, 2, 3, 4, 1};
+
+        assertTrue(Arrays.equals(new int[]{2, 2, 3, 4, 12}, intCode.opcode2(input)));
+    }
 }
