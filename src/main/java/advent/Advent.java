@@ -17,4 +17,21 @@ public class Advent {
         return (mass / 3) - 2;
     }
 
+    public int calculateTotalFuel(String fileName) {
+
+        int total = 0;
+
+        try (Scanner scanner = new Scanner(new File(fileName))) {
+
+            while (scanner.hasNext()) {
+                int mass = Integer.parseInt(scanner.nextLine());
+                total += calculateModuleFuel(mass);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return total;
+    }
 }

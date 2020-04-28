@@ -29,4 +29,8 @@ public class AdventTest {
 
     }
 
+    @Test
+    public void testTotalFuel() {
+        assertEquals(3454942, advent.calculateTotalFuel("src/test/resources/input.txt"));
+    }
 }
