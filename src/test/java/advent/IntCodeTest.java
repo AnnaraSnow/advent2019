@@ -3,9 +3,7 @@ package advent;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertArrayEquals;
 
 public class IntCodeTest {
 
@@ -26,7 +24,7 @@ public class IntCodeTest {
          */
         int[] input = {1, 2, 2, 3, 1};
 
-        assertTrue(Arrays.equals(new int[]{1, 2, 2, 4, 1}, intCode.opcode1(input)));
+        assertArrayEquals(new int[]{1, 2, 2, 4, 1}, intCode.opcode1(input, 0));
 
     }
 
@@ -39,6 +37,21 @@ public class IntCodeTest {
 
         int[] input = {2, 2, 3, 4, 1};
 
-        assertTrue(Arrays.equals(new int[]{2, 2, 3, 4, 12}, intCode.opcode2(input)));
+        assertArrayEquals(new int[]{2, 2, 3, 4, 12}, intCode.opcode2(input, 0));
+    }
+
+    @Test
+    public void testExecuteOperations() {
+        int[] input = {1, 9, 10, 3, 2, 3, 11, 0, 99, 30, 40, 50};
+
+        assertArrayEquals(new int[]{3500, 9, 10, 70, 2, 3, 11, 0, 99, 30, 40, 50}, intCode.executeOperations(input));
+
+    }
+
+    @Test
+    public void testConvertArrayIntoInts() {
+        String[] input = {"1", "2", "3", "4"};
+
+        assertArrayEquals(new int[]{1, 2, 3, 4}, intCode.convertArrayIntoInts(input));
     }
 }
