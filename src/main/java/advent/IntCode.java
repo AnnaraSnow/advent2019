@@ -27,6 +27,34 @@ public class IntCode {
         return input;
     }
 
+    public void findVerbNoun(int[] input) {
+
+        boolean foundIt = false;
+        int[] res = new int[0];
+
+        for (int i = 0; i < 100; i++) {
+            for (int j = 0; j < 100; j++) {
+                int[] tmp = Arrays.copyOf(input, input.length);
+
+                tmp[1] = i;
+                tmp[2] = j;
+
+                res = executeOperations(tmp);
+
+                if (res[0] == 19690720) {
+                    foundIt = true;
+                    break;
+                }
+            }
+
+            if (foundIt) {
+                break;
+            }
+        }
+
+        System.out.println(100 * res[1] + res[2]);
+    }
+
     public int[] executeOperations(int[] input) {
 
         for (int i = 0; i < input.length && input[i] != 99; i = i + 4) {
@@ -36,8 +64,6 @@ public class IntCode {
                 input = opcode2(input, i);
             }
         }
-
-        System.out.println(Arrays.toString(input));
 
         return input;
     }
@@ -52,7 +78,7 @@ public class IntCode {
                 String line = scanner.nextLine();
                 int[] input = convertArrayIntoInts(line.split(","));
 
-                intCode.executeOperations(input);
+                intCode.findVerbNoun(input);
             }
 
         } catch (IOException e) {
